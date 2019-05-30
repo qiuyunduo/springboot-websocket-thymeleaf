@@ -2,7 +2,7 @@
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
     <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
-    <script type="text/javascript" th:src="@{/js/default.js}"></script>
+    <script type="text/javascript" th:src="@{/js/wechat.js}"></script>
     <script type="text/javascript" th:src="@{https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js}"></script>
     <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/css/default.css}" rel="stylesheet"/>
@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="panel panel-primary" style="margin-left: 50%;width:100%;height:800px">
+            <div class="panel panel-primary" style="margin-left: 50%;width:100%;height:850px">
                 <div class="panel-heading text-center">
                     <span class="panel-title">无聊聊天室</span>
                 </div>
@@ -25,8 +25,12 @@
                 </div>
                 <div class="panel-bottom " style="margin-top:10px">
                     <div style="margin-top: 10px;">
-                        <input type="text" id="text" class="text-input" style="height: 30px;width:75%">
+                        <input type="text" id="text" class="text-input" style="height: 30px;width:75%" placeholder="输入你想说的话..">
                         <button class="btn btn-primary" style="width:20%;margin-left: 1px" onclick="sendMessage()">发送</button>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <input type="text" id="receiveId" class="text-input" style="height: 30px;width:75%" placeholder="频道号">
+                        ＠说悄悄话
                     </div>
                     <div style="margin-top: 20px">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">加入聊天室</button>

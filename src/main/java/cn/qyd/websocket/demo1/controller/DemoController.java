@@ -26,4 +26,14 @@ public class DemoController {
         modelAndView.addObject("list",list);
         return modelAndView;
     }
+
+    @GetMapping("/wechat")
+    public ModelAndView wechat(ModelAndView modelAndView) {
+        modelAndView.setViewName("/wechat");
+        modelAndView.addObject("city","北京朝阳区");
+        modelAndView.addObject("name","邱运铎");
+        ArrayList<String> list = new ArrayList<>(Arrays.asList("apple","orange", "banner"));
+        modelAndView.addObject("list",list);
+        return modelAndView;
+    }
 }

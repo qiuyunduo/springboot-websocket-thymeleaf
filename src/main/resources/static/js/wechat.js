@@ -13,7 +13,7 @@ function connectWebsocket() {
     }
 
     if('WebSocket' in window) {
-        websocket = new WebSocket("ws://localhost:8080/websocket/"+nickname);
+        websocket = new WebSocket("ws://192.168.1.126:8080/websocket/"+nickname);
         $('#myModal').modal('hide')
     } else {
         alert("您的浏览器不支持websocket");
@@ -58,10 +58,22 @@ function closeWebscoket() {
 
 //发送消息
 function sendMessage() {
-    var message = document.getElementById('text').value;
-    websocket.send(message);
-    // $('#text').val("");
-    document.getElementById('text').value = "";
+    var message = $('#text').val();
+    var reveiveId = $('#receiveId').val();
+
+    var webSocketMsg = { message: message, toUser: reveiveId };
+    if(reveiveId == ''){
+        //群聊.
+        webSocketMsg.type = 0;
+    }else{
+        //单聊.
+        webSocketMsg.type = 1;
+    }
+
+    websocket.send(JSON.stringify(webSocketMsg));
+    $('#text').val("");
+    $('#receiveId').val("");
+    // document.getElementById('text').value = "";
 }
 
 function test1() {
