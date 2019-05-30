@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: [ "/css/**", "/js/**"]
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    servlet:
+      content-type: text/html
+    encoding: utf-8
+  devtools:
+    restart:
+      #热部署生效
+      enabled: true
+      #设置重启的目录
+      additional-paths: resources/**,static/**,templates/**

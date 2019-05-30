@@ -1,0 +1,9 @@
+/* contentDiv */
+.contentDiv {
+    background: gray no-repeat;
+    background-size: 100% 100%;
+    width: 50%;
+    height: 1000px;
+    margin-left: 25%;
+    padding:20px 60px;
+}

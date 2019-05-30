@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/default.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>欢迎页面</title>
+
+    <script type="text/javascript">
+
+        function emitWebSocket() {
+            var socket;
+            if(typeof(WebSocket) == "undefined") {
+                console.log("您的浏览器不支持WebSocket");
+            }else {
+                console.log("您的浏览器支持WebSocket");
+
+                //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+                //socket = new WebSocket("ws://localhost:9094/starManager/websocket/张三")
+                socket = new WebSocket("ws://localhost:8080/websocket");
+                //打开事件
+                socket.onopen = function () {
+                    console.log("Socket 已打开");
+                    //socket.send("这是来自客户端的消息" + location.href + new Date());
+                };
+                //获得消息事件
+                socket.onmessage = function (msg) {
+                    console.log(msg.data);
+                    //发现消息进入    调后台获取
+                    alert((msg.data))
+                };
+                //关闭事件
+                socket.onclose = function () {
+                    console.log("Socket已关闭");
+                };
+                //发生了错误事件
+                socket.onerror = function () {
+                    alert("Socket发生了错误");
+                };
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary" style="margin-left: 50%;width:100%;height:750px">
+                <div class="panel-heading text-center">
+                    <span class="panel-title">无聊聊天室</span>
+                </div>
+                <div class="panel-body">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
