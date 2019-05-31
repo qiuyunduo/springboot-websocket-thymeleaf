@@ -17,7 +17,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @Date 19-5-29 下午6:10
  **/
 
-@ServerEndpoint(value = "/websocket/{nickname}")
+@ServerEndpoint(value = "/websocket/wechat/{nickname}")
 @Component
 @Slf4j
 public class WebSocketServer1 {
