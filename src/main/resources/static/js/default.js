@@ -13,7 +13,7 @@ function connectWebsocket() {
     }
 
     if('WebSocket' in window) {
-        websocket = new WebSocket("ws://192.168.1.126:8080/websocket/"+nickname);
+        websocket = new WebSocket("ws://localhost:8080/websocket/"+nickname);
         $('#myModal').modal('hide')
     } else {
         alert("您的浏览器不支持websocket");
